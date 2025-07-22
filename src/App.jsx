@@ -4,6 +4,9 @@ import Homepage from './pages/Homepage';
 import Trending from './pages/TrendingPage.jsx';
 import MainLayout from './layout/MainLayout';
 import Animenews from './components/Animenews.jsx';
+import ScrollToTop from './components/Scrolltotop.jsx';
+
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -16,7 +19,7 @@ const router = createBrowserRouter(
 );
 
 function App() {
-
+  <ScrollToTop/>
   return <RouterProvider router={router}></RouterProvider>
 }
 

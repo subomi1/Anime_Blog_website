@@ -4,7 +4,7 @@ export default function Animenews({ isHome }) {
   const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const [lastPage, setLastPage] = useState(1); // Jikan gives this
+  const [lastPage, setLastPage] = useState(1);
 
   useEffect(() => {
     setLoading(true);
@@ -12,13 +12,20 @@ export default function Animenews({ isHome }) {
       .then((response) => response.json())
       .then((data) => {
         setCharacters(data.data);
-        setLastPage(data.pagination.last_visible_page); // <- this line is important
+        setLastPage(data.pagination.last_visible_page);
         setLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
         setLoading(false);
       });
+  }, [currentPage]);
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   }, [currentPage]);
 
   let cssClasses = "";

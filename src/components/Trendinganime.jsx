@@ -54,7 +54,7 @@ export default function TrendingAnime({ isHome }) {
   let topTen = "";
   let cssClasses = "";
   if (isHome) {
-    topTen = animeList.splice(0, 10);
+    topTen = animeList.slice(0, 10);
     cssClasses = "h-[600px] overflow-y-hidden flex w-full items-center";
   } else {
     topTen = animeList;

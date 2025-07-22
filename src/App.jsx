@@ -3,12 +3,14 @@ import './App.css'
 import Homepage from './pages/Homepage';
 import Trending from './pages/TrendingPage.jsx';
 import MainLayout from './layout/MainLayout';
+import Animenews from './components/Animenews.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<MainLayout />}>
       <Route index element={<Homepage/>}></Route>
       <Route path="/trending" element={<Trending/>}></Route>
+      <Route path="/trending:char" element={<Animenews/>}></Route>
     </Route>
 )
 );
